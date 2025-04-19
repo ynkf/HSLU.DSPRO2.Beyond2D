@@ -96,15 +96,15 @@ def SetArguments(parser):
 
     #directories stuff
     parser.add_argument('--data_files',action='store',type=str,default='',dest='data_files') 
-    parser.add_argument('--data_dir',action='store',type=str,default='../data/castle-P19/images/',
+    parser.add_argument('--data_dir',action='store',type=str,default='../data/Herz-Jesus-P25/images/',
                         dest='data_dir',help='directory containing images (default: ../data/\
-                        castle-P19/images/)') 
+                        Herz-Jesus-P25/images/)') 
     parser.add_argument('--ext',action='store',type=str,default='jpg,png',dest='ext',
                         help='comma seperated string of allowed image extensions \
                         (default: jpg,png)') 
-    parser.add_argument('--out_dir',action='store',type=str,default='../data/castle-P19/',
+    parser.add_argument('--out_dir',action='store',type=str,default='../data/Herz-Jesus-P25/',
                         dest='out_dir',help='root directory to store results in \
-                        (default: ../data/castle-P19)') 
+                        (default: ../data/Herz-Jesus-P25)') 
 
     #feature matching args
     parser.add_argument('--features',action='store', type=str, default='SIFT', dest='features',
