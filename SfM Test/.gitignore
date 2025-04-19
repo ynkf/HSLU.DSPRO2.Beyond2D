@@ -1,0 +1,8 @@
+data/
+.ipynb*/
+*.ipynb
+*.pyc
+!tutorial.ipynb
+.vscode/
+*.ply
+*.txt
