@@ -4,15 +4,7 @@ import pickle
 # In Python 3, zip is a built-in function, no need to import from itertools
 # Removed: from itertools import izip
 
-def SerializeKeypoints(kp): 
-    """Serialize list of keypoint objects so they can be saved using pickle
-    
-    Args: 
-        kp: List of keypoint objects 
-        
-    Returns: 
-        serialized_kp: Serialized list of keypoint objects"""
-    
+def SerializeKeypoints(kp):     
     serialized_kp = []
     
     for curr_kp in kp:
@@ -23,15 +15,6 @@ def SerializeKeypoints(kp):
     return serialized_kp
 
 def DeserializeKeypoints(serialized_kp): 
-    """Deserialize list of keypoint objects so they can be converted back to
-    native opencv format
-    
-    Args: 
-        serialized_kp: Serialized list of keypoint objects 
-        
-    Returns: 
-        kp: List of keypoint objects"""
-    
     kp = []
     
     for temp in serialized_kp:
@@ -42,14 +25,6 @@ def DeserializeKeypoints(serialized_kp):
     return kp
 
 def SerializeMatches(matches): 
-    """Serialize list of match objects so they can be saved using pickle
-    
-    Args: 
-        matches: List of match objects 
-        
-    Returns: 
-        serialized_matches: Serialized list of match objects"""
-    
     serialized_matches = []
     
     for curr_match in matches:
@@ -60,15 +35,6 @@ def SerializeMatches(matches):
     return serialized_matches
 
 def DeserializeMatches(serialized_matches): 
-    """Deserialize list of match objects so they can be converted back to
-    native opencv format
-    
-    Args: 
-        serialized_matches: Serialized list of match objects 
-        
-    Returns: 
-        matches: List of match objects"""
-    
     matches = []
     
     for temp in serialized_matches:
@@ -79,15 +45,7 @@ def DeserializeMatches(serialized_matches):
         
     return matches
 
-def pts2ply(pts, colors, filename): 
-    """Saves an Nx3 points array to a .ply file
-    
-    Args: 
-        pts: Nx3 float array of 3D points
-        colors: Nx3 uint8 array of RGB colors
-        filename: filename to save to (including .ply extension)
-    """
-    
+def pts2ply(pts, colors, filename):     
     with open(filename, 'w') as f: 
         f.write('ply\n')
         f.write('format ascii 1.0\n')
@@ -110,19 +68,6 @@ def pts2ply(pts, colors, filename):
                                                 cl[0], cl[1], cl[2]))
                                                 
 def DrawCorrespondences(img, ptsA, ptsB, ax, color1=(255,255,0), color2=(0,255,255)): 
-    """Draw correspondence points on image
-    
-    Args: 
-        img: image to draw on 
-        ptsA: image A points
-        ptsB: image B points 
-        ax: matplotlib axis to draw on
-        color1: color for image A points
-        color2: color for image B points
-        
-    Returns: 
-        ax: matplotlib axis with correspondences"""
-    
     assert len(ptsA) == len(ptsB), 'Correspondence points must be 1-to-1'
     
     ax.imshow(img)
