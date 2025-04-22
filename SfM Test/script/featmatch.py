@@ -96,13 +96,13 @@ def SetArguments(parser):
 
     #directories stuff
     parser.add_argument('--data_files',action='store',type=str,default='',dest='data_files') 
-    parser.add_argument('--data_dir',action='store',type=str,default='../data/Herz-Jesus-P25/images/',
+    parser.add_argument('--data_dir',action='store',type=str,default='C:\\Users\\fabia\\Desktop\\test_1\\test_conv_images',
                         dest='data_dir',help='directory containing images (default: ../data/\
                         Herz-Jesus-P25/images/)') 
     parser.add_argument('--ext',action='store',type=str,default='jpg,png',dest='ext',
                         help='comma seperated string of allowed image extensions \
                         (default: jpg,png)') 
-    parser.add_argument('--out_dir',action='store',type=str,default='../data/Herz-Jesus-P25/',
+    parser.add_argument('--out_dir',action='store',type=str,default='C:\\Users\\fabia\\Desktop\\test_1\\test_conv_images',
                         dest='out_dir',help='root directory to store results in \
                         (default: ../data/Herz-Jesus-P25)') 
 

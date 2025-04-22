@@ -388,9 +388,9 @@ class SFM(object):
 def SetArguments(parser): 
 
     #directory stuff
-    parser.add_argument('--data_dir',action='store',type=str,default='../data/',dest='data_dir',
+    parser.add_argument('--data_dir',action='store',type=str,default='C:\\Users\\fabia\\Desktop\\',dest='data_dir',
                         help='root directory containing input data (default: ../data/)') 
-    parser.add_argument('--dataset',action='store',type=str,default='Herz-Jesus-P25',dest='dataset',
+    parser.add_argument('--dataset',action='store',type=str,default='test_1',dest='dataset',
                         help='name of dataset (default: Herz-Jesus-P25)') 
     parser.add_argument('--ext',action='store',type=str,default='jpg,png',dest='ext', 
                         help='comma seperated string of allowed image extensions \
