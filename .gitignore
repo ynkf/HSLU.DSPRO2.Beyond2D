@@ -178,6 +178,3 @@ cython_debug/
 
 # Models
 /models
-
-# Colmap
-/colmap
