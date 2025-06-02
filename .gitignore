@@ -181,3 +181,12 @@ cython_debug/
 
 # Colmap
 /colmap
+
+# VS Code
+.vscode
+
+# Wandb
+/wandb
+
+# DepthAnything
+/DepthAnythingV2

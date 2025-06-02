@@ -26,6 +26,11 @@ class DepthAnythingFurnitureDataset(Dataset):
 
             image = self.transform_image(data["image"])
             depth = self.transform_depth(data["depth"])
+
+            # invert depth to match pretrained model output
+            epsilon = 1e-6
+            depth = 1.0 / (depth + epsilon)
+
             return {"image": image, "depth": depth}
         except Exception as e:
             print(f"Skipping corrupted sample at index {idx}: {e}")
