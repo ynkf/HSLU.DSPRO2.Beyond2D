@@ -179,9 +179,6 @@ cython_debug/
 # Models
 /models
 
-# Colmap
-/colmap
-
 # VS Code
 .vscode
 
@@ -190,3 +187,15 @@ cython_debug/
 
 # DepthAnything
 /DepthAnythingV2
+
+# colmap
+/colmap/dense
+/colmap/sparse
+/colmap/database.db
+/colmap/dense_model.ply
+/colmap/dense_model.ply.vis
+/colmap/sparse_model.ply
+/colmap/dense_model_filtered.ply
+/colmap/dense_traditional.ply
+/colmap/dense_traditional.ply.vis
+/colmap/images/livingroom
