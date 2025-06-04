@@ -76,7 +76,7 @@ def preprocess_dataset_hdf5(dataset, split, image_size=(392, 392)):
         T.ToTensor()
     ])
 
-    h5_path = f"processed_{split}_dataset_original_depths.h5"
+    h5_path = f"processed_{split}_dataset_inverted_depths.h5"
     with h5py.File(h5_path, "w") as h5f:
         idx = 0
         for data in tqdm(dataset, desc=f"Preprocessing {split}"):
@@ -88,12 +88,14 @@ def preprocess_dataset_hdf5(dataset, split, image_size=(392, 392)):
                 depth = transform_depth(data['depth'])
 
                 # Invert depth
-                # depth = 1.0 / (depth + 1e-6)
+                min_val = depth.min()
+                max_val = depth.max()
+                inverted_depth = max_val + min_val - depth
 
                 # Save each sample as a group
                 grp = h5f.create_group(f"sample_{idx}")
                 grp.create_dataset("image", data=image.numpy(), compression="gzip")
-                grp.create_dataset("depth", data=depth.numpy(), compression="gzip")
+                grp.create_dataset("depth", data=inverted_depth.numpy(), compression="gzip")
 
                 idx += 1
             except Exception as e:
@@ -133,9 +135,9 @@ if RUN_PREPROCESSING:
 
 
 
-train_dataset = HDF5Dataset("data/DeepFurniture/pytorch/processed_train_dataset_original_depths.h5")
-val_dataset = HDF5Dataset("data/DeepFurniture/pytorch/processed_val_dataset_original_depths.h5")
-test_dataset = HDF5Dataset("data/DeepFurniture/pytorch/processed_test_dataset_original_depths.h5")
+train_dataset = HDF5Dataset("data/DeepFurniture/pytorch/processed_train_dataset_inverted_depths.h5")
+val_dataset = HDF5Dataset("data/DeepFurniture/pytorch/processed_val_dataset_inverted_depths.h5")
+test_dataset = HDF5Dataset("data/DeepFurniture/pytorch/processed_test_dataset_inverted_depths.h5")
 
 
 model_configs = {
