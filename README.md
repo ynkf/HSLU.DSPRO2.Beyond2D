@@ -1,7 +1,5 @@
 # Beyond2D
 
-TODO: Description of the project
-
 ## Team
 
 - [Fabian Dubach](https://github.com/FabianDubach)
